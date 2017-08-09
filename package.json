@@ -1,0 +1,24 @@
+{
+  "name": "autocompletetextview",
+  "version": "1.0.1",
+  "description": "A Native Ui Component of Android ",
+  "main": "index.js",
+  "dependencies": {
+    "react": "16.0.0-alpha.12",
+		"react-native": "0.47.1"
+  },
+  "devDependencies": {
+    "babel-jest": "20.0.3",
+		"babel-preset-react-native": "2.1.0",
+		"jest": "20.0.4",
+		"react-test-renderer": "16.0.0-alpha.12"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "autocompletetextview"
+  ],
+  "author": "Raj Suvariya <rajsuvariya@gmail.com>",
+  "license": "ISC"
+}
