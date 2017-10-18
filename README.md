@@ -1,4 +1,4 @@
-###Auto Complete Text View
+### Auto Complete Text View
  
 This is a module for accessing Native Android AutoCompleteTextView.
 This is a module for accessing **Native Android AutoCompleteTextView.**
