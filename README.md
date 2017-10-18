@@ -3,8 +3,7 @@
 This is a module for accessing Native Android AutoCompleteTextView.
 This is a module for accessing **Native Android AutoCompleteTextView.**
  
- To install use the following command
-`npm install autocompletetextview --save`
+To install use the following command
 ~~`npm install autocompletetextview --save`~~ (Please read below section)
 
 ### Help Required
