@@ -26,8 +26,9 @@ To install use the following command
       );
     }    
     ```
- 5. Copy from this repo, the `autocomletetextview/src/AutoCompleteTextView.js` and paste it into anywhere in your javascript sources
-6. Then import and use it in your javascript as usual like this:
+5. Copy from this repo, the `autocomletetextview/src/AutoCompleteTextView.js` and paste it into anywhere in your javascript sources
+6. Install the `prop-types` package by doing `npm i prop-types`
+7. Then import and use it in your javascript as usual like this:
 
    ```
     import React, { Component } from 'react';
@@ -52,6 +53,7 @@ To install use the following command
       handleTextChange = value => console.log('value:', value);
     }
    ```
+8. Make sure to recompile by doing `react-native run-android`
     
 
 ### Help Required
