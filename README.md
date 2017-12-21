@@ -30,32 +30,27 @@ To install use the following command
 6. Then import and use it in your javascript as usual like this:
 
    ```
-  /**
-   * Sample React Native App
-   * https://github.com/facebook/react-native
-   * @flow
-   */
+    import React, { Component } from 'react';
+    import { Text, View } from 'react-native';
 
-  import React, { Component } from 'react';
-  import { Text, View } from 'react-native';
+    import AutoCompleteTextView from './AutoCompleteTextView'
 
-  import AutoCompleteTextView from './AutoCompleteTextView'
+    export default class App extends Component {
+      state = {
+        value: ''
+      }
+      render() {
+        const { value } = this.state;
 
-  export default class App extends Component {
-    state = {
-      value: ''
+        return (
+          <View style={{ flex:1 justifyContent:'center', alignItems:'center'}}>
+            <AutoCompleteTextView dataSource={['cat', 'dog', 'tiger']} value={value} onTextChange={this.handleTextChange} />
+          </View>
+        );
+      }
+
+      handleTextChange = value => console.log('value:', value);
     }
-    render() {
-      const { value } = this.state;
-      return (
-        <View style={{ flex:1 justifyContent:'center', alignItems:'center'}}>
-          <AutoCompleteTextView dataSource={['cat', 'dog', 'tiger']} value={value} onTextChange={this.handleTextChange} />
-        </View>
-      );
-    }
-
-    handleTextChange = value => console.log('value:', value);
-  }
    ```
     
 
