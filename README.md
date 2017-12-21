@@ -44,7 +44,7 @@ To install use the following command
         const { value } = this.state;
 
         return (
-          <View style={{ flex:1 justifyContent:'center', alignItems:'center'}}>
+          <View style={{ flex:1, justifyContent:'center', alignItems:'center'}}>
             <AutoCompleteTextView dataSource={['cat', 'dog', 'tiger']} value={value} onTextChange={this.handleTextChange} />
           </View>
         );
