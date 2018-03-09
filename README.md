@@ -15,38 +15,39 @@ If anyone would like to help me maintain this repo, then that would be a great h
       project(':autocompletetextview').projectDir = file("../node_modules/autocompletetextview/android")
     ```
 3. Add the following dependency in android/app/build.gradle
-```
-  dependencies {
-    compile project(':autocompletetextview')
-    ...
-  }
-```
+    ```
+      dependencies {
+        compile project(':autocompletetextview')
+        ...
+      }
+    ```
 4. Open MainApplication or ReactApplication located at `android/app/src/main/java/com/<your package name>/` and add following packager
-```
-  new RNAutocompletetextviewPackage()
-```
-  and import the following dependency
+    ```
+      new RNAutocompletetextviewPackage()
+    ```
 
-```
-  import com.reactlibrary.RNAutocompletetextviewPackage;
-```
 
-  like this
+    like this
 
-```
-  @Override
-  protected List<ReactPackage> getPackages() {
-      return Arrays.<ReactPackage>asList(
-              new MainReactPackage(),
-              new RNAutocompletetextviewPackage()
-      );
-  }
-```
+    ```
+      @Override
+      protected List<ReactPackage> getPackages() {
+          return Arrays.<ReactPackage>asList(
+                  new MainReactPackage(),
+                  new RNAutocompletetextviewPackage()
+          );
+      }
+    ```
+    and import the following dependency
+
+    ```
+    import com.reactlibrary.RNAutocompletetextviewPackage;
+    ```
 5. USAGE:
-```
+    ```
     import { AutoCompleteTextView } from 'autocompletetextview';
     render() {
-	    ...
+      ...
         <AutoCompleteTextView
           style={{ flex: 1, flexDirection: 'row', height: 60, alignSelf: 'stretch' }}
           dataSource={["Bangalore", "Pune", "Delhi", "Goa"]}
@@ -56,5 +57,5 @@ If anyone would like to help me maintain this repo, then that would be a great h
         />
         ...
     }
-```
+    ```
 6. Run application using `react-native run-android` command
