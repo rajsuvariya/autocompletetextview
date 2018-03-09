@@ -5,7 +5,14 @@ This is a module for accessing **Native Android [AutoCompleteTextView](https://d
 **Note** : Please note that this module has been written based on one particular project requirement. It might not have support of special functionalities you want. In such cases feel free to open an issue. I will add the support at earliest.
 
 ### Table of Contents
-TODO
+- [Contribution Guidelines](#contribution-guidelines)
+- [Installation](#installation)
+  - [Manual Linking](#manual-linking)
+- [Usage](#usage)
+  - [Props](#props)
+- [Notes](#notes)
+  - [Must Set Dimensions](#must-set-dimensions)
+  - [Remove Underline](#remove-underline)
 
 ### Contribution Guidelines
 If anyone would like to help me maintain this repo, then that would be a great help to me. Please reach me out on Hangout. My gmail id is rajsuvariya@gmail.com
@@ -51,7 +58,7 @@ import com.reactlibrary.RNAutocompletetextviewPackage; // Add new import
 
 public class MainApplication extends Application implements ReactApplication {
   ...
-  
+
   @Override
   protected List<ReactPackage> getPackages() {
     return Arrays.<ReactPackage>asList(
