@@ -1,5 +1,7 @@
 ## Auto Complete Text View
 
+![](https://thumbs.gfycat.com/CleverIllfatedAfricanwildcat-small.gif)
+
 This is a module for accessing **Native Android [AutoCompleteTextView](https://developer.android.com/reference/android/widget/AutoCompleteTextView.html)**. This module is designed for Android only with no plans to support iOS. iOS does not have an equivalent native component.
 
 **Note** : Please note that this module has been written based on one particular project requirement. It might not have support of special functionalities you want. In such cases feel free to open an issue. I will add the support at earliest.
