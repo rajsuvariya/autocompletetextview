@@ -11,7 +11,7 @@ If anyone would like to help me maintain this repo, then that would be a great h
 1. Add the following dependency in your package.json
 ```
   "dependencies": {
-    "autocompletetextview": "github:rajsuvariya/autocompletetextview#development",
+    "autocompletetextview": "github:rajsuvariya/autocompletetextview#master",
     ...
   }
 ```
