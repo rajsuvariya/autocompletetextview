@@ -31,7 +31,7 @@ public class AutoCompleteTextViewManager extends SimpleViewManager<MyAutoComplet
     }
 
     @Override
-    protected MyAutoCompleteTextView createViewInstance(ThemedReactContext reactContext) {
+    protected MyAutoCompleteTextView createViewInstance(final ThemedReactContext reactContext) {
         this.mContext = reactContext;
         final MyAutoCompleteTextView view = new MyAutoCompleteTextView(reactContext);
         view.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +58,7 @@ public class AutoCompleteTextViewManager extends SimpleViewManager<MyAutoComplet
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 WritableMap event = Arguments.createMap();
                 event.putString("text", charSequence.toString());
-                ReactContext reactContext = (ReactContext) view.getContext();
+                // ReactContext reactContext = (ReactContext) view.getContext();
                 reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(
                         view.getId(),
                         "topChange",
