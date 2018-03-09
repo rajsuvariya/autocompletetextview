@@ -113,3 +113,28 @@ In current implementation, you must set a `width` and `height` by the `style` pr
 
 #### Remove Underline
 In current implementation, the underline is always there. You can only cover it, by setting a `backgroundColor` in the `style` prop.
+
+### Example
+
+The code to the screen recording in this readme is the following:
+
+```
+import React, { Component } from 'react'
+import { View } from 'react-native'
+import { AutoCompleteTextView } from 'autocompletetextview'
+
+export default class App extends Component {
+    render() {
+        return (
+            <View style={{ flex:1, justifyContent:'center', alignItems:'center' }}>
+                <AutoCompleteTextView
+                    style={{ height:60, width:200 }}
+                    dataSource={['Bangalore', 'Pune', 'Delhi', 'Goa']}
+                    onTextChange={this.handleTextChange}
+                    hint="Your Hint"
+                />
+            </View>
+        )
+    }
+}
+```
