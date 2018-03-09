@@ -1,6 +1,6 @@
 
-import { NativeModules } from 'react-native';
+import { AutoCompleteTextView } from './src/AutoCompleteTextView';
 
-const { RNAutocompletetextview } = NativeModules;
+const { RNAutocompletetextview } = AutoCompleteTextView;
 
 export default RNAutocompletetextview;
