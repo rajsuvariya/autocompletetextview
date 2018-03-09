@@ -1,12 +1,13 @@
-### Auto Complete Text View - Under development
+### Auto Complete Text View
 
-This is a module for accessing Native Android AutoCompleteTextView.
 This is a module for accessing **Native Android AutoCompleteTextView.**
 
-To install use the following command
-~~`npm install autocompletetextview --save`~~ (Please read below section)
+**Note** : Please note that this module has been written based on one particular project requirement. It might not have support of special functionalities you want. In such cases feel free to open an issue. I will add the support at earliest.
 
-### Installation
+### Contribution Guidelines
+If anyone would like to help me maintain this repo, then that would be a great help to me. Please reach me out on Hangout. My gmail id is rajsuvariya@gmail.com
+
+### Installation (npm installation will be available soon)
 1. Add the following dependency in your package.json
 ```
   "dependencies": {
