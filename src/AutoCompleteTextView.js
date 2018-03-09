@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react'
 import { requireNativeComponent, View } from 'react-native';
 
+import ColorPropType from 'react-native/Libraries/StyleSheet/ColorPropType'
+
 class AutoCompleteTextView extends React.Component {
   constructor(props) {
     super(props);
@@ -20,11 +22,27 @@ class AutoCompleteTextView extends React.Component {
 
 AutoCompleteTextView.propTypes = {
   dataSource: PropTypes.array.isRequired,
-  value: PropTypes.string.isRequired,
-  onTextChange: PropTypes.func.isRequired,
+  // disableFullscreenUI: PropTypes.bool,
+  editable: PropTypes.bool,
+  onTextChange: PropTypes.func,
+  placeholder: PropTypes.string,
+  placeholderTextColor: ColorPropType,
+  // returnKeyType: PropTypes.oneOf([
+  //   // Cross-platform
+  //   'done',
+  //   'go',
+  //   'next',
+  //   'search',
+  //   'send',
+  //   // Android-only
+  //   'none',
+  //   'previous'
+  // ]),
+  selectTextOnFocus: PropTypes.bool,
   showDropDown: PropTypes.bool,
-  showDropDownArrow: PropTypes.bool,
-  hint: PropTypes.string,
+  // showDropDownArrow: PropTypes.bool, // not supported
+  threshold: PropTypes.number,
+  value: PropTypes.string,
   ...View.propTypes
 };
 
