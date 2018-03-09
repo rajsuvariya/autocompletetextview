@@ -5,6 +5,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.view.inputmethod.EditorInfo;
 
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactContext;
@@ -91,6 +92,16 @@ public class AutoCompleteTextViewManager extends SimpleViewManager<MyAutoComplet
         }
 
         view.setAdapter(new ArrayAdapter<String>(mContext, android.R.layout.simple_spinner_dropdown_item, optionList));
+    }
+
+    @ReactProp(name = "disableFullscreenUI", defaultBoolean = false)
+    public void setDisableFullscreenUI(MyAutoCompleteTextView view, boolean disableFullscreenUI) {
+        int imeOptions = view.getImeOptions();
+        if (disableFullscreenUI) {
+            view.setImeOptions(imeOptions | EditorInfo.IME_FLAG_NO_EXTRACT_UI);
+        } else {
+            view.setImeOptions(imeOptions & EditorInfo.IME_FLAG_NO_EXTRACT_UI);
+        }
     }
 
     @ReactProp(name = "editable", defaultBoolean = true)

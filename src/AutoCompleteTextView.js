@@ -22,7 +22,7 @@ class AutoCompleteTextView extends React.Component {
 
 AutoCompleteTextView.propTypes = {
   dataSource: PropTypes.array.isRequired,
-  // disableFullscreenUI: PropTypes.bool,
+  disableFullscreenUI: PropTypes.bool,
   editable: PropTypes.bool,
   onTextChange: PropTypes.func,
   placeholder: PropTypes.string,
