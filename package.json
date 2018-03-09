@@ -5,7 +5,8 @@
   "main": "index.js",
   "dependencies": {
     "react": "16.0.0-alpha.12",
-		"react-native": "0.47.1"
+    "react-native": "0.47.1",
+    "prop-types": "^15.6.0"
   },
   "devDependencies": {
     "babel-jest": "20.0.3",
