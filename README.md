@@ -61,7 +61,7 @@ dependencies {
 3. Change your main application to "import" and "add" a new package, in `android/app/src/main/.../MainApplication.java`:
 
 ```java
-import com.lugg.ReactSnackbar.ReactSnackbarPackage; // Add new import
+import com.reactlibrary.RNAutocompletetextviewPackage; // Add new import
 
 public class MainApplication extends Application implements ReactApplication {
   ...
