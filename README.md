@@ -15,6 +15,7 @@ This is a module for accessing **Native Android [AutoCompleteTextView](https://d
 - [Notes](#notes)
   - [Must Set Dimensions](#must-set-dimensions)
   - [Remove Underline](#remove-underline)
+- [Example](#example)
 
 ### Contribution Guidelines
 If anyone would like to help me maintain this repo, then that would be a great help to me. Please reach me out on Hangout. My gmail id is rajsuvariya@gmail.com
