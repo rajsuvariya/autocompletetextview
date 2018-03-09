@@ -77,7 +77,8 @@ public class AutoCompleteTextViewManager extends SimpleViewManager<MyAutoComplet
 
             }
         });
-        view.setThreshold(1); // TODO: remove
+        view.setThreshold(1);
+
         return view;
 
     }
@@ -129,7 +130,7 @@ public class AutoCompleteTextViewManager extends SimpleViewManager<MyAutoComplet
     public void setThreshold(MyAutoCompleteTextView view, @Nullable Integer threshold) {
         // we must maintain mThreshold, because threshold can never be set < 1. so we need to get read the threshold prop here and see if its 0, if it is then showDropDown, in the onFocus, onClick
         if (threshold == null) {
-            view.setThreshold(0); // cannot ever have a threshold < 1
+            view.setThreshold(1);
             mThreshold = 0;
         } else {
             view.setThreshold(threshold);
