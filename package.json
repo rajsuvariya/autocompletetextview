@@ -1,7 +1,7 @@
 {
   "name": "autocompletetextview",
-  "version": "1.0.1",
-  "description": "A Native Ui Component of Android ",
+  "version": "1.0.3",
+  "description": "A Native Ui Component of Android",
   "main": "index.js",
   "dependencies": {
     "react": "^16.3.0-alpha.1",

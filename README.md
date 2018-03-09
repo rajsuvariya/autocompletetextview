@@ -31,6 +31,11 @@ To install use the following command
 ```
   new RNAutocompletetextviewPackage()
 ```
+  and import the following dependency
+
+```
+  import com.reactlibrary.RNAutocompletetextviewPackage;
+```
 
   like this
 
