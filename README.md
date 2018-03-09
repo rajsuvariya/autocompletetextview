@@ -86,3 +86,23 @@ import { AutoCompleteTextView } from 'autocompletetextview';
     )
   }
 ```
+
+#### Props
+
+| Prop                                                                         | Type     | Default     | Required | Description                                                                                              |
+|------------------------------------------------------------------------------|----------|-------------|----------|----------------------------------------------------------------------------------------------------------|
+| dataSource                                                                   | array    |             | Yes      | Array of strings that are offered as autocomplete suggestions.                                           |
+| hint                                                                         | string   | `undefined` |          | The string that will be rendered before text input has been entered.                                     |
+| onTextChange                                                                 | function |             | Yes      | Callback that is called when the text input selection is changed. This will be called with `{ text }`.   |
+| showDropDown                                                                 | bool     | `false`     |          | If should show the list of suggestions on mount.                                                         |
+| showDropDownArrow                                                            | bool     | `false      |          | Currently does not do anything. See [#12](https://github.com/rajsuvariya/autocompletetextview/issues/12) |
+| value                                                                        | string   |             |          | If omitted, then it is an uncontrolled component.                                                        |
+| [...View.props](http://facebook.github.io/react-native/docs/view.html#props) |          |             |          | All other props of the standard react-native `<View>` component.                                         |
+    
+### Notes
+
+#### Must Set Dimensions
+In current implementation, you must set a `width` and `height` by the `style` prop, otherwise the input field will not be visible.
+
+#### Remove Underline
+In current implementation, the underline is always there. You can only cover it, by setting a `backgroundColor` in the `style` prop.
