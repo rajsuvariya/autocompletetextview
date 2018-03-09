@@ -32,4 +32,4 @@ var RCTAutoCompleteTextView = requireNativeComponent('RCTAutoCompleteTextView', 
   nativeOnly: {onChange: true}
 });
 
-export default AutoCompleteTextView 
+export { AutoCompleteTextView }
