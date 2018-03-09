@@ -7,28 +7,21 @@ This is a module for accessing **Native Android AutoCompleteTextView.**
 ### Contribution Guidelines
 If anyone would like to help me maintain this repo, then that would be a great help to me. Please reach me out on Hangout. My gmail id is rajsuvariya@gmail.com
 
-### Installation (npm installation will be available soon)
-1. Add the following dependency in your package.json
-```
-  "dependencies": {
-    "autocompletetextview": "github:rajsuvariya/autocompletetextview#master",
-    ...
-  }
-```
-2. Run `npm install`.
-3. Add the following lines in your android/settings.gradle
-```
-  include ':autocompletetextview'
-  project(':autocompletetextview').projectDir = file("../node_modules/autocompletetextview/android")
-```
-4. Add the following dependency in android/app/build.gradle
+### Installation (using npm)
+1. Run `npm install autocompletetextview --save`.
+2. Add the following lines in your android/settings.gradle
+    ```
+      include ':autocompletetextview'
+      project(':autocompletetextview').projectDir = file("../node_modules/autocompletetextview/android")
+    ```
+3. Add the following dependency in android/app/build.gradle
 ```
   dependencies {
     compile project(':autocompletetextview')
     ...
   }
 ```
-5. Open MainApplication or ReactApplication located at `android/app/src/main/java/com/<your package name>/` and add following packager
+4. Open MainApplication or ReactApplication located at `android/app/src/main/java/com/<your package name>/` and add following packager
 ```
   new RNAutocompletetextviewPackage()
 ```
@@ -49,7 +42,7 @@ If anyone would like to help me maintain this repo, then that would be a great h
       );
   }
 ```
-6. USAGE:
+5. USAGE:
 ```
     import { AutoCompleteTextView } from 'autocompletetextview';
     render() {
@@ -64,4 +57,4 @@ If anyone would like to help me maintain this repo, then that would be a great h
         ...
     }
 ```
-7. Run application using `react-native run-android` command
+6. Run application using `react-native run-android` command
