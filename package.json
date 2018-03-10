@@ -1,17 +1,24 @@
 {
   "name": "autocompletetextview",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A Native Ui Component of Android",
   "main": "index.js",
-  "dependencies": {
-    "react": "^16.3.0-alpha.1",
-    "react-native": "^0.54.0"
+  "peerDependencies": {
+    "react": ">=15.1 || >=16.0.0-alpha.6",
+    "react-native": ">=0.40"
   },
   "devDependencies": {
     "babel-jest": "20.0.3",
     "babel-preset-react-native": "2.1.0",
     "jest": "20.0.4",
     "react-test-renderer": "16.0.0-alpha.12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rajsuvariya/autocompletetextview.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rajsuvariya/autocompletetextview/issues"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
