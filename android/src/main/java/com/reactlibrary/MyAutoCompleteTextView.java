@@ -373,8 +373,7 @@ public class MyAutoCompleteTextView extends android.widget.AutoCompleteTextView 
         new SpannableStringBuilder(reactTextUpdate.getText());
     manageSpans(spannableStringBuilder);
     mContainsImages = reactTextUpdate.containsImages();
-    //mIsSettingTextFromJS = true;
-    mIsSettingTextFromJS =false;
+    mIsSettingTextFromJS = true;
 
     getText().replace(0, length(), spannableStringBuilder);
 
