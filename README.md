@@ -1,3 +1,5 @@
+Trying to extend ReactEditText
+
 ### Auto Complete Text View
 
 This is a module for accessing **Native Android AutoCompleteTextView.**
