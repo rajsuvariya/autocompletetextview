@@ -1,7 +1,7 @@
 import React, {useState, useEffect, FunctionComponent} from 'react';
 import {View, NativeEventEmitter, requireNativeComponent} from 'react-native';
 
-const RNAutoCompleteTextView = requireNativeComponent('RNAutoCompleteTextView');
+// const RNAutoCompleteTextView = requireNativeComponent('RNAutoCompleteTextView');
 
 interface NativeProps {
   dataSource: string[];
@@ -50,4 +50,8 @@ const AutoCompleteTextView: FunctionComponent<NativeProps & View> = (props) => {
   );
 };
 
-export default AutoCompleteTextView;
+var RNAutoCompleteTextView = requireNativeComponent('RNAutoCompleteTextView', AutoCompleteTextView, {
+  nativeOnly: {onChange: true}
+});
+
+export { AutoCompleteTextView };
