@@ -1,4 +1,4 @@
-package package com.reactlibrary;
+package com.reactlibrary;
 
 import com.facebook.react.ReactPackage
 import com.facebook.react.bridge.NativeModule
