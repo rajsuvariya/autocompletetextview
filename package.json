@@ -1,11 +1,11 @@
 {
-  "name": "autocompletetextview",
-  "version": "1.0.5",
+  "name": "rn-android-autocompletetextview",
+  "version": "2.0.0",
   "description": "A Native Ui Component of Android",
   "main": "index.js",
   "peerDependencies": {
-    "react": ">=15.1 || >=16.0.0-alpha.6",
-    "react-native": ">=0.40"
+    "react": "16.9.0",
+    "react-native": "0.61.5"
   },
   "devDependencies": {
     "babel-jest": "20.0.3",
@@ -15,10 +15,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rajsuvariya/autocompletetextview.git"
+    "url": "git+https://github.com/ShamrockTrading/autocompletetextview.git"
   },
   "bugs": {
-    "url": "https://github.com/rajsuvariya/autocompletetextview/issues"
+    "url": "https://github.com/ShamrockTrading/autocompletetextview/issues"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -26,6 +26,6 @@
   "keywords": [
     "autocompletetextview"
   ],
-  "author": "Raj Suvariya <rajsuvariya@gmail.com>",
+  "author": "Stephan Miller <stmiller@ryanrts.com>",
   "license": "ISC"
 }
