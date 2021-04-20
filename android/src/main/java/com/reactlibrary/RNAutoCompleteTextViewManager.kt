@@ -1,4 +1,4 @@
-package com.rtsfinancial.carrierpro
+package com.reactlibrary;
 
 import android.content.Context
 import android.os.Handler

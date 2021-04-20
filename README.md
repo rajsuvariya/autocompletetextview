@@ -41,7 +41,7 @@ If anyone would like to help me maintain this repo, then that would be a great h
     and import the following dependency
 
     ```
-    import com.reactlibrary.RNAutocompleteTextViewPackage;
+    import com.rtsfinancial.carrierpro.RNAutocompleteTextViewPackage;
     ```
 5. USAGE:
     ```
