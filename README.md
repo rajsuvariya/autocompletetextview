@@ -8,11 +8,11 @@ This is a module for accessing **Native Android AutoCompleteTextView.**
 If anyone would like to help me maintain this repo, then that would be a great help to me. Please reach me out on Hangout. My gmail id is rajsuvariya@gmail.com
 
 ### Installation (using npm)
-1. Run `npm install autocompletetextview --save`.
+1. Run `npm install rn-android-autocompletetextview --save`.
 2. Add the following lines in your android/settings.gradle
     ```
-      include ':autocompletetextview'
-      project(':autocompletetextview').projectDir = file("../node_modules/autocompletetextview/android")
+      include ':rn-android-autocompletetextview'
+      project(':rn-android-autocompletetextview').projectDir = file("../node_modules/rn-android-autocompletetextview/android")
     ```
 3. Add the following dependency in android/app/build.gradle
     ```
@@ -23,7 +23,7 @@ If anyone would like to help me maintain this repo, then that would be a great h
     ```
 4. Open MainApplication or ReactApplication located at `android/app/src/main/java/com/<your package name>/` and add following packager
     ```
-      new RNAutocompletetextviewPackage()
+      new RNAutocompleteTextViewPackage()
     ```
 
 
@@ -34,18 +34,18 @@ If anyone would like to help me maintain this repo, then that would be a great h
       protected List<ReactPackage> getPackages() {
           return Arrays.<ReactPackage>asList(
                   new MainReactPackage(),
-                  new RNAutocompletetextviewPackage()
+                  new RNAutocompleteTextViewPackage()
           );
       }
     ```
     and import the following dependency
 
     ```
-    import com.reactlibrary.RNAutocompletetextviewPackage;
+    import com.reactlibrary.RNAutocompleteTextViewPackage;
     ```
 5. USAGE:
     ```
-    import { AutoCompleteTextView } from 'autocompletetextview';
+    import { AutoCompleteTextView } from 'rn-android-autocompletetextview';
     render() {
       ...
         <AutoCompleteTextView
