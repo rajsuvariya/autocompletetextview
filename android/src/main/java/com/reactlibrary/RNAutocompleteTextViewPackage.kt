@@ -7,10 +7,12 @@ import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.uimanager.ViewManager
 import java.util.*
 
+// NOTE: Will show error in Android Studio because createJSModules needs to implemented, but it lies?
+// Not needed, in fact deprecated after RN 0.47
 class RNAutocompleteTextViewPackage : ReactPackage {
-    override fun createJSModules(): MutableList<Class<out JavaScriptModule>> {
-        TODO("Not yet implemented")
-    }
+//    fun createJSModules(): MutableList<Class<out JavaScriptModule>> {
+//        TODO("Not yet implemented")
+//    }
 
     override fun createNativeModules(reactContext: ReactApplicationContext): List<NativeModule> {
         return emptyList()
