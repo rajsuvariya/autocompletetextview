@@ -40,6 +40,7 @@ repositories {
 dependencies {
     implementation 'com.facebook.react:react-native:+',
             "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
-            'androidx.appcompat:appcompat:1.1.0'
+            'androidx.appcompat:appcompat:1.1.0',
+            'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha03'
     api group: 'org.apache.commons', name: 'commons-lang3', version: '3.6'
 }
