@@ -1,6 +1,7 @@
 package com.reactlibrary;
 
 import android.content.Context
+import android.os.Build
 import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
@@ -8,6 +9,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import androidx.annotation.RequiresApi
 import com.facebook.react.bridge.Arguments
 import com.facebook.react.bridge.ReactContext
 import com.facebook.react.bridge.ReadableArray
@@ -71,6 +73,7 @@ class RNAutoCompleteTextViewManager : SimpleViewManager<RNAutoCompleteTextView>(
         return "RNAutoCompleteTextView"
     }
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun createViewInstance(reactContext: ThemedReactContext): RNAutoCompleteTextView {
         mContext = reactContext
         autocomplete = RNAutoCompleteTextView(reactContext)
@@ -112,7 +115,7 @@ class RNAutoCompleteTextViewManager : SimpleViewManager<RNAutoCompleteTextView>(
             optionList!!.add(resolvedString)
             optionsMap.put(resolvedString, i)
         }
-        view.setAdapter(ArrayAdapter(mContext, R.layout.simple_spinner_dropdown_item, optionList))
+        view.setAdapter(mContext?.let { ArrayAdapter(it, R.layout.simple_spinner_dropdown_item, optionList!!) })
         view.onItemClickListener = AdapterView.OnItemClickListener {
             parent: AdapterView<*>?,
             view: View,

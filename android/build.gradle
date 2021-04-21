@@ -1,5 +1,6 @@
 
 buildscript {
+    ext.kotlin_version = '1.2.51'
     repositories {
         jcenter()
         google()
@@ -7,10 +8,12 @@ buildscript {
 
     dependencies {
         classpath("com.android.tools.build:gradle:3.4.2")
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 29
@@ -29,8 +32,14 @@ android {
 
 repositories {
     mavenCentral()
+    google()
+    jcenter()
+    maven { url "https://jitpack.io" }
 }
 
 dependencies {
-    implementation 'com.facebook.react:react-native:+'
+    implementation 'com.facebook.react:react-native:+',
+            "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
+            'androidx.appcompat:appcompat:1.1.0'
+    api group: 'org.apache.commons', name: 'commons-lang3', version: '3.6'
 }

@@ -2,12 +2,15 @@ package com.reactlibrary;
 
 import android.content.Context
 import android.graphics.Color
+import android.os.Build
 import android.text.InputType
 import android.util.TypedValue
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.AppCompatAutoCompleteTextView
 
+@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 class RNAutoCompleteTextView(context: Context) : AppCompatAutoCompleteTextView(context) {
     init {
         inputType = InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
