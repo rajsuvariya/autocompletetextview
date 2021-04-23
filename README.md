@@ -43,14 +43,28 @@ This is a module for accessing **Native Android AutoCompleteTextView.**
 5. USAGE:
     ```
     import { AutoCompleteTextView } from 'rn-android-autocompletetextview';
+
+    const items = [
+      {firstName: 'Bob', lastName: 'Smith},
+      {firstName: 'John', lastName: 'Jones},
+    ];
+
+    const onDropdownClick = (position: number) => {
+      const selectedItem = items[position];
+      // Do something with item
+    };
+
     render() {
       ...
         <AutoCompleteTextView
           style={{ flex: 1, flexDirection: 'row', height: 60, alignSelf: 'stretch' }}
-          dataSource={["Bangalore", "Pune", "Delhi", "Goa"]}
-          onTextChange = {(text)=>console.log(text)}
-          showDropDown = {true}
-          hint = "Your Hint"
+          dataSource={items}
+          itemFormat={'${firstName} ${lastName}'}
+          value={value}
+          onChangeText={(text)=>console.log(text)}
+          showDropDown={false}
+          hint={'My Hint'}
+          onItemClick={onDropdownClick}
         />
         ...
     }
