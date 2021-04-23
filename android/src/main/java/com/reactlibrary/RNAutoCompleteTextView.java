@@ -9,23 +9,18 @@ import android.widget.ListAdapter;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.AppCompatAutoCompleteTextView;
-import kotlin.Metadata;
-import kotlin.jvm.internal.Intrinsics;
-import org.jetbrains.annotations.NotNull;
 
 
 @RequiresApi(21)
 public final class RNAutoCompleteTextView extends AppCompatAutoCompleteTextView {
-    public RNAutoCompleteTextView(@NotNull Context context) {
+    public RNAutoCompleteTextView(Context context) {
         super(context);
-        Intrinsics.checkParameterIsNotNull(context, "context");
         this.setInputType(524288);
         this.setTextColor(Color.parseColor("#333333"));
         this.setTextSize(14.0F);
         int value = 8;
         float var10001 = (float)value;
         Resources var10002 = context.getResources();
-        Intrinsics.checkExpressionValueIsNotNull(var10002, "context.resources");
         int dpValue = (int)TypedValue.applyDimension(1, var10001, var10002.getDisplayMetrics());
         this.setPadding(0, this.getPaddingTop(), 0, dpValue);
         LayoutParams layoutParams = new LayoutParams(-1, -2);
