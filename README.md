@@ -4,9 +4,6 @@ This is a module for accessing **Native Android AutoCompleteTextView.**
 
 **Note** : Please note that this module has been written based on one particular project requirement. It might not have support of special functionalities you want. In such cases feel free to open an issue. I will add the support at earliest.
 
-### Contribution Guidelines
-If anyone would like to help me maintain this repo, then that would be a great help to me. Please reach me out on Hangout. My gmail id is rajsuvariya@gmail.com
-
 ### Installation (using npm)
 1. Run `npm install rn-android-autocompletetextview --save`.
 2. Add the following lines in your android/settings.gradle
@@ -17,7 +14,7 @@ If anyone would like to help me maintain this repo, then that would be a great h
 3. Add the following dependency in android/app/build.gradle
     ```
       dependencies {
-        compile project(':autocompletetextview')
+        compile project(':rn-android-autocompletetextview')
         ...
       }
     ```
@@ -41,7 +38,7 @@ If anyone would like to help me maintain this repo, then that would be a great h
     and import the following dependency
 
     ```
-    import com.rtsfinancial.carrierpro.RNAutocompleteTextViewPackage;
+    import com.reactlibrary.RNAutocompleteTextViewPackage;
     ```
 5. USAGE:
     ```
