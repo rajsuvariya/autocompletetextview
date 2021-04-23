@@ -14,11 +14,9 @@ public final class RNAutocompleteTextViewPackage implements ReactPackage {
         return Collections.emptyList();
     }
 
-    // NOTE : needs this for the standalone module but causes error in RN project because it is not overridable
-//    @Override
-//    public List<Class<? extends JavaScriptModule>> createJSModules() {
-//        return null;
-//    }
+    public List<Class<? extends JavaScriptModule>> createJSModules() {
+        return null;
+    }
 
     public List createViewManagers(ReactApplicationContext reactContext) {
         List var10000 = Arrays.asList((ViewManager)(new RNAutoCompleteTextViewManager()));

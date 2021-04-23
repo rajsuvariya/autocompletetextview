@@ -28,7 +28,4 @@ public final class RNAutoCompleteTextView extends AppCompatAutoCompleteTextView 
         this.setLayoutParams((android.view.ViewGroup.LayoutParams)layoutParams);
         this.getBackground().setTint(Color.parseColor("#d3d3d3"));
     }
-
-    public void setAdapter(ListAdapter var25) {
-    }
 }

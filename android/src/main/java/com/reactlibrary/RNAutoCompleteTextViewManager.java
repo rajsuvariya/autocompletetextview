@@ -3,7 +3,7 @@ package com.reactlibrary;
 import android.content.Context;
 import android.os.Build;
 import android.os.Handler;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -16,7 +16,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import androidx.annotation.RequiresApi;
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactContext;
-import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule.RCTDeviceEventEmitter;
@@ -56,15 +55,6 @@ public final class RNAutoCompleteTextViewManager extends SimpleViewManager {
     private final Runnable InputFinishChecker;
 
     @Nullable
-    public final Context getMContext() {
-        return this.mContext;
-    }
-
-    public final void setMContext(@Nullable Context var1) {
-        this.mContext = var1;
-    }
-
-    @Nullable
     public final String getLastInputText() {
         return this.lastInputText;
     }
@@ -77,24 +67,12 @@ public final class RNAutoCompleteTextViewManager extends SimpleViewManager {
         return this.settingFromJS;
     }
 
-    public final void setSettingFromJS(boolean var1) {
-        this.settingFromJS = var1;
-    }
-
-    public final boolean getEnteringText() {
-        return this.enteringText;
-    }
-
     public final void setEnteringText(boolean var1) {
         this.enteringText = var1;
     }
 
     public final int getDelay() {
         return this.delay;
-    }
-
-    public final void setDelay(int var1) {
-        this.delay = var1;
     }
 
     public final long getLastEditTime() {
@@ -109,53 +87,6 @@ public final class RNAutoCompleteTextViewManager extends SimpleViewManager {
         return this.handler;
     }
 
-    public final void setHandler(Handler var1) {
-        this.handler = var1;
-    }
-
-    @Nullable
-    public final ArrayList getOptionList() {
-        return this.optionList;
-    }
-
-    public final void setOptionList(@Nullable ArrayList var1) {
-        this.optionList = var1;
-    }
-
-    public final HashMap getOptionsMap() {
-        return this.optionsMap;
-    }
-
-    public final void setOptionsMap(HashMap var1) {
-        this.optionsMap = var1;
-    }
-
-    @Nullable
-    public final RNAutoCompleteTextViewManager.NativeTextWatcher getTextWatcher() {
-        return this.textWatcher;
-    }
-
-    public final void setTextWatcher(@Nullable RNAutoCompleteTextViewManager.NativeTextWatcher var1) {
-        this.textWatcher = var1;
-    }
-
-    @Nullable
-    public final RNAutoCompleteTextView getAutocomplete() {
-        return this.autocomplete;
-    }
-
-    public final void setAutocomplete(@Nullable RNAutoCompleteTextView var1) {
-        this.autocomplete = var1;
-    }
-
-    public final int getCOMMAND_FOCUS() {
-        return this.COMMAND_FOCUS;
-    }
-
-    public final int getCOMMAND_BLUR() {
-        return this.COMMAND_BLUR;
-    }
-
     public String getName() {
         return "RNAutoCompleteTextView";
     }
@@ -166,8 +97,7 @@ public final class RNAutoCompleteTextViewManager extends SimpleViewManager {
         this.autocomplete = new RNAutoCompleteTextView((Context)reactContext);
         this.autocomplete.setOnFocusChangeListener((OnFocusChangeListener)(new OnFocusChangeListener() {
             public final void onFocusChange(View view, boolean hasFocus) {
-                RNAutoCompleteTextViewManager var10000 = RNAutoCompleteTextViewManager.this;
-                var10000.onChangeFocus(hasFocus, view);
+                RNAutoCompleteTextViewManager.this.onChangeFocus(hasFocus, view);
             }
         }));
         this.textWatcher = new RNAutoCompleteTextViewManager.NativeTextWatcher(reactContext, this.autocomplete);;
@@ -179,8 +109,7 @@ public final class RNAutoCompleteTextViewManager extends SimpleViewManager {
     public final void onChangeFocus(boolean focused, View view) {
         WritableMap params = Arguments.createMap();
         params.putBoolean("focused", focused);
-        Context var10000 = view.getContext();
-        ReactContext reactContext = (ReactContext)var10000;
+        ReactContext reactContext = (ReactContext)view.getContext();
         ((RCTDeviceEventEmitter)reactContext.getJSModule(RCTDeviceEventEmitter.class)).emit("onFocus", params);
     }
 
@@ -212,26 +141,14 @@ public final class RNAutoCompleteTextViewManager extends SimpleViewManager {
 
             StrSubstitutor sub = new StrSubstitutor((Map)valuesMap);
             String resolvedString = sub.replace(template);
-            ArrayList var10000 = this.optionList;
-            var10000.add(resolvedString);
+            this.optionList.add(resolvedString);
             this.optionsMap.put(resolvedString, i);
         }
-
-        RNAutoCompleteTextView var23 = view;
-        Context var10001 = this.mContext;
-        ArrayAdapter var25;
-        if (var10001 != null) {
-            Context var21 = var10001;
-            boolean var22 = false;
-            ArrayAdapter var24 = new ArrayAdapter(var21, layout.simple_spinner_dropdown_item, this.optionList);
-            ArrayAdapter var20 = var24;
-            var23 = view;
-            var25 = var20;
-        } else {
-            var25 = null;
-        }
-
-        var23.setAdapter((ListAdapter)var25);
+        System.out.println("list: " + this.optionList);
+        System.out.println("map: " + this.optionsMap);
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this.mContext, layout.simple_spinner_dropdown_item, this.optionList);
+        view.setAdapter(arrayAdapter);
+//        System.out.println("arrayAdapter: " + arrayAdapter.getItem(1));
         view.setOnItemClickListener((OnItemClickListener)(new OnItemClickListener() {
             public final void onItemClick(@Nullable AdapterView parent, View view, int position, long id) {
                 RNAutoCompleteTextViewManager.this.onItemClick(parent, view, position, id);
@@ -241,11 +158,9 @@ public final class RNAutoCompleteTextViewManager extends SimpleViewManager {
 
     public final void onItemClick(@Nullable AdapterView parent, View view, int position, long id) {
         this.enteringText = false;
-        Context var10000 = view.getContext();
-        ReactContext reactContext = (ReactContext)var10000;
+        ReactContext reactContext = (ReactContext)view.getContext();
         Object item = parent.getItemAtPosition(position);
-        Map var9 = (Map)this.optionsMap;
-        Integer originalId = (Integer)var9.get(item);
+        Integer originalId = (Integer)this.optionsMap.get(item);
         ((RCTDeviceEventEmitter)reactContext.getJSModule(RCTDeviceEventEmitter.class)).emit("onItemClick", originalId);
         this.showDropDown(this.autocomplete, false);
     }
@@ -304,16 +219,15 @@ public final class RNAutoCompleteTextViewManager extends SimpleViewManager {
 //        }
 //
 //    }
-
-    // $FF: synthetic method
-    // $FF: bridge method
-    public void receiveCommand(View var1, int var2, ReadableArray var3) {
-        this.receiveCommand((RNAutoCompleteTextView)var1, var2, var3);
-    }
+//
+//    // $FF: synthetic method
+//    // $FF: bridge method
+//    public void receiveCommand(View var1, int var2, ReadableArray var3) {
+//        this.receiveCommand((RNAutoCompleteTextView)var1, var2, var3);
+//    }
 
     public RNAutoCompleteTextViewManager() {
-        HashMap var2 = new HashMap();
-        this.optionsMap = var2;
+        this.optionsMap = new HashMap();
         this.COMMAND_FOCUS = 1;
         this.COMMAND_BLUR = 2;
         this.InputFinishChecker = (Runnable)(new Runnable() {
@@ -334,7 +248,7 @@ public final class RNAutoCompleteTextViewManager extends SimpleViewManager {
 
         public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
             String inputText = charSequence.toString();
-            if (inputText.equals(RNAutoCompleteTextViewManager.this.getLastInputText()) && !this.view.isPerformingCompletion()) {
+            if (!inputText.equals(RNAutoCompleteTextViewManager.this.getLastInputText()) && !this.view.isPerformingCompletion()) {
                 RNAutoCompleteTextViewManager.this.setEnteringText(!RNAutoCompleteTextViewManager.this.getSettingFromJS());
                 RNAutoCompleteTextViewManager.this.setLastInputText(inputText);
                 WritableMap event = Arguments.createMap();
@@ -346,23 +260,9 @@ public final class RNAutoCompleteTextViewManager extends SimpleViewManager {
 
         public void afterTextChanged(Editable editable) {
             RNAutoCompleteTextViewManager.this.setLastEditTime(System.currentTimeMillis());
-            RNAutoCompleteTextViewManager.this.getHandler().postDelayed(RNAutoCompleteTextViewManager.this.InputFinishChecker, (long)RNAutoCompleteTextViewManager.this.getDelay());
-        }
-
-        public final ThemedReactContext getReactContext() {
-            return this.reactContext;
-        }
-
-        public final void setReactContext(ThemedReactContext var1) {
-            this.reactContext = var1;
-        }
-
-        public final AutoCompleteTextView getView() {
-            return this.view;
-        }
-
-        public final void setView(AutoCompleteTextView var1) {
-            this.view = var1;
+            RNAutoCompleteTextViewManager.this.getHandler().postDelayed(
+                    RNAutoCompleteTextViewManager.this.InputFinishChecker,
+                    (long)RNAutoCompleteTextViewManager.this.getDelay());
         }
 
         public NativeTextWatcher(ThemedReactContext reactContext, AutoCompleteTextView view) {
