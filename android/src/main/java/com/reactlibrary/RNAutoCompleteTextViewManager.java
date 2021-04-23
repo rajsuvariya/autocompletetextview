@@ -11,7 +11,6 @@ import android.view.View.OnFocusChangeListener;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.ListAdapter;
 import android.widget.AdapterView.OnItemClickListener;
 import androidx.annotation.RequiresApi;
 import com.facebook.react.bridge.Arguments;
@@ -144,11 +143,8 @@ public final class RNAutoCompleteTextViewManager extends SimpleViewManager {
             this.optionList.add(resolvedString);
             this.optionsMap.put(resolvedString, i);
         }
-        System.out.println("list: " + this.optionList);
-        System.out.println("map: " + this.optionsMap);
         ArrayAdapter arrayAdapter = new ArrayAdapter(this.mContext, layout.simple_spinner_dropdown_item, this.optionList);
         view.setAdapter(arrayAdapter);
-//        System.out.println("arrayAdapter: " + arrayAdapter.getItem(1));
         view.setOnItemClickListener((OnItemClickListener)(new OnItemClickListener() {
             public final void onItemClick(@Nullable AdapterView parent, View view, int position, long id) {
                 RNAutoCompleteTextViewManager.this.onItemClick(parent, view, position, id);

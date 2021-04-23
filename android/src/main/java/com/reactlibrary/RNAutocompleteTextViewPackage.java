@@ -19,7 +19,6 @@ public final class RNAutocompleteTextViewPackage implements ReactPackage {
     }
 
     public List createViewManagers(ReactApplicationContext reactContext) {
-        List var10000 = Arrays.asList((ViewManager)(new RNAutoCompleteTextViewManager()));
-        return var10000;
+        return Arrays.asList((ViewManager)(new RNAutoCompleteTextViewManager()));
     }
 }
