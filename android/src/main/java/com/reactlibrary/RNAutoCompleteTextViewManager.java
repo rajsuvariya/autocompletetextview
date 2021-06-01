@@ -49,8 +49,6 @@ public final class RNAutoCompleteTextViewManager extends SimpleViewManager<RNAut
     private HashMap optionsMap;
     @Nullable
     private RNAutoCompleteTextViewManager.NativeTextWatcher textWatcher;
-    @Nullable
-//    private RNAutoCompleteTextView autocomplete;
     private final int COMMAND_FOCUS;
     private final int COMMAND_BLUR;
     private final Runnable InputFinishChecker;
