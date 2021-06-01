@@ -1,7 +1,5 @@
 import React, {useState, useEffect, FunctionComponent, useRef} from 'react';
 import {View, NativeEventEmitter, requireNativeComponent} from 'react-native';
-// import setAndForwardRef from 'react-native/Libraries/Utilities/setAndForwardRef';
-// https://github.com/facebook/react-native/Libraries/Components/TextInput/TextInput.js
 
 interface NativeProps {
   dataSource: string[];
@@ -21,13 +19,6 @@ const AutoCompleteTextView: FunctionComponent<NativeProps & View> = (props) => {
   const data = {dataSource: JSON.stringify(dataSource), itemFormat};
   const [lastValue, setLastValue] = useState(false);
   const inputRef = useRef(null);
-
-  // const _setNativeRef = setAndForwardRef({
-  //   getForwardedRef: () => forwardedRef,
-  //   setLocalRef: (ref) => {
-  //     inputRef.current = ref;
-  //   },
-  // });
 
   useEffect(() => {
     eventEmitter.addListener('onItemClick', props.onItemClick);
