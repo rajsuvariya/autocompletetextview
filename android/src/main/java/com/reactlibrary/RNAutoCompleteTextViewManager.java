@@ -50,7 +50,7 @@ public final class RNAutoCompleteTextViewManager extends SimpleViewManager<RNAut
     @Nullable
     private RNAutoCompleteTextViewManager.NativeTextWatcher textWatcher;
     @Nullable
-    private RNAutoCompleteTextView autocomplete;
+//    private RNAutoCompleteTextView autocomplete;
     private final int COMMAND_FOCUS;
     private final int COMMAND_BLUR;
     private final Runnable InputFinishChecker;
@@ -95,16 +95,16 @@ public final class RNAutoCompleteTextViewManager extends SimpleViewManager<RNAut
     @RequiresApi(21)
     protected RNAutoCompleteTextView createViewInstance(ThemedReactContext reactContext) {
         this.mContext = (Context)reactContext;
-        this.autocomplete = new RNAutoCompleteTextView((Context)reactContext);
-        this.autocomplete.setOnFocusChangeListener((OnFocusChangeListener)(new OnFocusChangeListener() {
+        RNAutoCompleteTextView autocomplete = new RNAutoCompleteTextView((Context)reactContext);
+        autocomplete.setOnFocusChangeListener((OnFocusChangeListener)(new OnFocusChangeListener() {
             public final void onFocusChange(View view, boolean hasFocus) {
                 RNAutoCompleteTextViewManager.this.onChangeFocus(hasFocus, view);
             }
         }));
-        this.textWatcher = new RNAutoCompleteTextViewManager.NativeTextWatcher(reactContext, this.autocomplete);;
-        this.autocomplete.addTextChangedListener((TextWatcher)this.textWatcher);
-        this.autocomplete.setThreshold(1);
-        return this.autocomplete;
+        this.textWatcher = new RNAutoCompleteTextViewManager.NativeTextWatcher(reactContext, autocomplete);;
+        autocomplete.addTextChangedListener((TextWatcher)this.textWatcher);
+        autocomplete.setThreshold(1);
+        return autocomplete;
     }
 
     public final void onChangeFocus(boolean focused, View view) {
@@ -160,7 +160,7 @@ public final class RNAutoCompleteTextViewManager extends SimpleViewManager<RNAut
         Object item = parent.getItemAtPosition(position);
         Integer originalId = (Integer)this.optionsMap.get(item);
         ((RCTDeviceEventEmitter)reactContext.getJSModule(RCTDeviceEventEmitter.class)).emit("onItemClick", originalId);
-        this.showDropDown(this.autocomplete, false);
+        showDropDown((RNAutoCompleteTextView) view, false);
     }
 
     @ReactProp(
