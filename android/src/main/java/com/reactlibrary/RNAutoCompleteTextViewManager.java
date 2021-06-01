@@ -15,8 +15,10 @@ import android.widget.AdapterView.OnItemClickListener;
 import androidx.annotation.RequiresApi;
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactContext;
+import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.common.MapBuilder;
 import com.facebook.react.modules.core.DeviceEventManagerModule.RCTDeviceEventEmitter;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
@@ -198,29 +200,28 @@ public final class RNAutoCompleteTextViewManager extends SimpleViewManager {
 
     }
 
-    // NOTR: not used but has to be converted to Java
-//    @Nullable
-//    public Map getCommandsMap() {
-//        return MapsKt.mapOf(new Pair[]{TuplesKt.to("focus", this.COMMAND_FOCUS), TuplesKt.to("blur", this.COMMAND_BLUR)});
-//    }
-//
-//    public void receiveCommand(RNAutoCompleteTextView view, int commandId, @Nullable ReadableArray args) {
-//        String var4 = "receive command";
-//        System.out.println(var4);
-//        RNAutoCompleteTextView var10000;
-//        if (commandId == this.COMMAND_FOCUS) {
-//            this.autocomplete.requestFocus();
-//        } else if (commandId == this.COMMAND_BLUR) {
-//            this.autocomplete.clearFocus();
-//        }
-//
-//    }
-//
-//    // $FF: synthetic method
-//    // $FF: bridge method
-//    public void receiveCommand(View var1, int var2, ReadableArray var3) {
-//        this.receiveCommand((RNAutoCompleteTextView)var1, var2, var3);
-//    }
+    @Nullable
+    @Override
+    public Map<String, Integer> getCommandsMap() {
+        return MapBuilder.of(
+                "focus",
+                COMMAND_FOCUS,
+                "blur",
+                COMMAND_BLUR
+        );
+    }
+
+    public void receiveCommand(RNAutoCompleteTextView view, int commandId, @Nullable ReadableArray args) {
+        String var4 = "receive command";
+        System.out.println(var4);
+        RNAutoCompleteTextView var10000;
+        if (commandId == this.COMMAND_FOCUS) {
+            this.autocomplete.requestFocus();
+        } else if (commandId == this.COMMAND_BLUR) {
+            this.autocomplete.clearFocus();
+        }
+
+    }
 
     public RNAutoCompleteTextViewManager() {
         this.optionsMap = new HashMap();

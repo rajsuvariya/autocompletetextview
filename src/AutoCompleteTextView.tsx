@@ -1,7 +1,7 @@
-import React, {useState, useEffect, FunctionComponent} from 'react';
+import React, {useState, useEffect, FunctionComponent, useRef} from 'react';
 import {View, NativeEventEmitter, requireNativeComponent} from 'react-native';
-
-// const RNAutoCompleteTextView = requireNativeComponent('RNAutoCompleteTextView');
+// import setAndForwardRef from 'react-native/Libraries/Utilities/setAndForwardRef';
+// https://github.com/facebook/react-native/Libraries/Components/TextInput/TextInput.js
 
 interface NativeProps {
   dataSource: string[];
@@ -12,13 +12,15 @@ interface NativeProps {
   showDropDown: boolean;
   hint?: string;
   onItemClick: Function;
+  forwardedRef: any;
 }
 
 const AutoCompleteTextView: FunctionComponent<NativeProps & View> = (props) => {
   const eventEmitter = new NativeEventEmitter(RNAutoCompleteTextView);
-  const {dataSource, itemFormat, ...rest} = props;
+  const {dataSource, itemFormat, forwardedRef, ...rest} = props;
   const data = {dataSource: JSON.stringify(dataSource), itemFormat};
   const [lastValue, setLastValue] = useState(false);
+  const inputRef = useRef(null);
 
   // const _setNativeRef = setAndForwardRef({
   //   getForwardedRef: () => forwardedRef,
@@ -46,7 +48,7 @@ const AutoCompleteTextView: FunctionComponent<NativeProps & View> = (props) => {
   };
 
   return (
-    <RNAutoCompleteTextView {...rest} dataSource={data} onChange={onChange} />
+    <RNAutoCompleteTextView {...rest} dataSource={data} ref={forwardedRef} onChange={onChange} />
   );
 };
 
