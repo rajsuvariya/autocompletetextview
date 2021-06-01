@@ -34,7 +34,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public final class RNAutoCompleteTextViewManager extends SimpleViewManager {
+public final class RNAutoCompleteTextViewManager extends SimpleViewManager<RNAutoCompleteTextView> {
     @Nullable
     private Context mContext;
     @Nullable
@@ -212,13 +212,10 @@ public final class RNAutoCompleteTextViewManager extends SimpleViewManager {
     }
 
     public void receiveCommand(RNAutoCompleteTextView view, int commandId, @Nullable ReadableArray args) {
-        String var4 = "receive command";
-        System.out.println(var4);
-        RNAutoCompleteTextView var10000;
         if (commandId == this.COMMAND_FOCUS) {
-            this.autocomplete.requestFocus();
+            view.requestFocus();
         } else if (commandId == this.COMMAND_BLUR) {
-            this.autocomplete.clearFocus();
+            view.clearFocus();
         }
 
     }
