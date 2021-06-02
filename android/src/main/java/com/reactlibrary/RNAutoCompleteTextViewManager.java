@@ -1,6 +1,8 @@
 package com.reactlibrary;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Build;
 import android.os.Handler;
 import androidx.annotation.Nullable;
@@ -107,14 +109,15 @@ public final class RNAutoCompleteTextViewManager extends SimpleViewManager<RNAut
 
     public final void onChangeFocus(boolean focused, View view) {
         WritableMap event = Arguments.createMap();
-        event.putBoolean("focused", focused);
         ReactContext reactContext = (ReactContext)view.getContext();
         if (focused) {
+            view.getBackground().mutate().setColorFilter(Color.parseColor("#0091EA"), PorterDuff.Mode.SRC_ATOP);
             reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(
                     view.getId(),
                     "topFocus",
                     event);
         } else {
+            view.getBackground().mutate().setColorFilter(Color.parseColor("#D3D3D3"), PorterDuff.Mode.SRC_ATOP);
             reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(
                     view.getId(),
                     "topBlur",
