@@ -7,6 +7,7 @@ interface NativeProps {
   value: string;
   onChangeText?: Function;
   onFocus: Function;
+  onBlur: Function;
   showDropDown: boolean;
   hint?: string;
   onItemClick: Function;
@@ -18,17 +19,21 @@ const AutoCompleteTextView: FunctionComponent<NativeProps & View> = (props) => {
   const {dataSource, itemFormat, forwardedRef, ...rest} = props;
   const data = {dataSource: JSON.stringify(dataSource), itemFormat};
   const [lastValue, setLastValue] = useState(false);
-  const inputRef = useRef(null);
 
   useEffect(() => {
-    eventEmitter.addListener('onItemClick', props.onItemClick);
-    return () => eventEmitter.removeListener('onItemClick', props.onItemClick);
+    const subscription = eventEmitter.addListener('onItemClick', props.onItemClick);
+    return () => subscription.remove();
   }, [props.onItemClick]);
 
   useEffect(() => {
-    eventEmitter.addListener('onFocus', props.onFocus);
-    return () => eventEmitter.removeListener('onFocus', props.onFocus);
+    const subscription = eventEmitter.addListener('onFocus', props.onFocus);
+    return () => subscription.remove();
   }, [props.onFocus]);
+
+  useEffect(() => {
+    const subscription = eventEmitter.addListener('onBlur', props.onBlur);
+    return () => subscription.remove();
+  }, [props.onBlur]);
 
   const onChange = (event: Event) => {
     if (!props.onChangeText || lastValue === event.nativeEvent.text) {

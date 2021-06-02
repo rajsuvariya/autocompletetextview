@@ -106,10 +106,20 @@ public final class RNAutoCompleteTextViewManager extends SimpleViewManager<RNAut
     }
 
     public final void onChangeFocus(boolean focused, View view) {
-        WritableMap params = Arguments.createMap();
-        params.putBoolean("focused", focused);
+        WritableMap event = Arguments.createMap();
+        event.putBoolean("focused", focused);
         ReactContext reactContext = (ReactContext)view.getContext();
-        ((RCTDeviceEventEmitter)reactContext.getJSModule(RCTDeviceEventEmitter.class)).emit("onFocus", params);
+        if (focused) {
+            reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(
+                    view.getId(),
+                    "topFocus",
+                    event);
+        } else {
+            reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(
+                    view.getId(),
+                    "topBlur",
+                    event);
+        }
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
