@@ -10,6 +10,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.View.OnFocusChangeListener;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -226,6 +227,9 @@ public final class RNAutoCompleteTextViewManager extends SimpleViewManager<RNAut
         if (commandId == this.COMMAND_FOCUS) {
             view.requestFocus();
         } else if (commandId == this.COMMAND_BLUR) {
+            ReactContext reactContext = (ReactContext)view.getContext();
+            InputMethodManager inputMethodManager = (InputMethodManager) reactContext.getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
             view.clearFocus();
         }
 
