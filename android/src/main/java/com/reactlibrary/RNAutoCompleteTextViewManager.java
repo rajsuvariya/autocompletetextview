@@ -172,7 +172,9 @@ public final class RNAutoCompleteTextViewManager extends SimpleViewManager<RNAut
         Object item = parent.getItemAtPosition(position);
         Integer originalId = (Integer)this.optionsMap.get(item);
         ((RCTDeviceEventEmitter)reactContext.getJSModule(RCTDeviceEventEmitter.class)).emit("onItemClick", originalId);
-        showDropDown((RNAutoCompleteTextView) view, false);
+//        NOTE: Weird error doing this
+//        com.reactnativecommunity.picker.CheckedTextViewImpl cannot be cast to com.reactlibrary.RNAutoCompleteTextView
+//        showDropDown((RNAutoCompleteTextView) view, false);
     }
 
     @ReactProp(
