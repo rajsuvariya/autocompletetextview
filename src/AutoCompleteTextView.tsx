@@ -37,7 +37,6 @@ const AutoCompleteTextView: FunctionComponent<NativeProps & View> = (props) => {
   }, [props.onBlur]);
 
   const onChange = (event: Event) => {
-    console.log('event.nativeEvent.text and count', event.nativeEvent.text, event.nativeEvent.eventCount);
     if (!props.onChangeText || lastValue === event.nativeEvent.text) {
       return;
     }

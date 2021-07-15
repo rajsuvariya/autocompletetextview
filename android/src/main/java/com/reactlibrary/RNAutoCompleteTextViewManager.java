@@ -154,8 +154,7 @@ public final class RNAutoCompleteTextViewManager extends SimpleViewManager<RNAut
             name = "value"
     )
     public final void setValue(RNAutoCompleteTextView view, @Nullable String value) {
-        if (view.getJSEventCount() == view.getEventCount() && !value.equals(RNAutoCompleteTextViewManager.this.getLastInputText())) {
-            System.out.println("setValueFromJS: " + value);
+        if (view.getJSEventCount() == view.getEventCount()) {
             view.removeTextChangedListener((TextWatcher)this.textWatcher);
             view.setText((CharSequence)value);
             if (value != null) {
@@ -232,8 +231,6 @@ public final class RNAutoCompleteTextViewManager extends SimpleViewManager<RNAut
             String inputText = charSequence.toString();
             int eventCount = view.getAndSetEventCount();
             if (!inputText.equals(RNAutoCompleteTextViewManager.this.getLastInputText()) && !this.view.isPerformingCompletion()) {
-                System.out.println("sendValueToJS: " + inputText);
-                System.out.println("nativeEventCount: " + eventCount);
                 RNAutoCompleteTextViewManager.this.setLastInputText(inputText);
                 WritableMap event = Arguments.createMap();
                 event.putString("text", inputText);
