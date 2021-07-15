@@ -1,4 +1,4 @@
-import React, {useState, useEffect, FunctionComponent, useRef} from 'react';
+import React, {useState, useEffect, FunctionComponent} from 'react';
 import {View, NativeEventEmitter, requireNativeComponent} from 'react-native';
 
 interface NativeProps {
@@ -19,6 +19,7 @@ const AutoCompleteTextView: FunctionComponent<NativeProps & View> = (props) => {
   const {dataSource, itemFormat, forwardedRef, ...rest} = props;
   const data = {dataSource: JSON.stringify(dataSource), itemFormat};
   const [lastValue, setLastValue] = useState(false);
+  const [mostRecentEventCount, setMostRecentEventCount] = useState(0);
 
   useEffect(() => {
     const subscription = eventEmitter.addListener('onItemClick', props.onItemClick);
@@ -36,20 +37,29 @@ const AutoCompleteTextView: FunctionComponent<NativeProps & View> = (props) => {
   }, [props.onBlur]);
 
   const onChange = (event: Event) => {
+    console.log('event.nativeEvent.text and count', event.nativeEvent.text, event.nativeEvent.eventCount);
     if (!props.onChangeText || lastValue === event.nativeEvent.text) {
       return;
     }
+    setMostRecentEventCount(event.nativeEvent.eventCount);
     setLastValue(event.nativeEvent.text);
     props.onChangeText(event.nativeEvent.text);
   };
 
   return (
-    <RNAutoCompleteTextView {...rest} dataSource={data} ref={forwardedRef} onChange={onChange} />
+    <RNAutoCompleteTextView
+      {...rest}
+      jsEventCount={mostRecentEventCount}
+      dataSource={data}
+      ref={forwardedRef}
+      onChange={onChange}
+    />
   );
 };
 
-var RNAutoCompleteTextView = requireNativeComponent('RNAutoCompleteTextView', AutoCompleteTextView, {
+const RNAutoCompleteTextView: any = requireNativeComponent('RNAutoCompleteTextView', AutoCompleteTextView, {
   nativeOnly: {onChange: true}
-});
+  },
+);
 
-export { AutoCompleteTextView };
+export {AutoCompleteTextView};
