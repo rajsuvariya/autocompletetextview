@@ -1,3 +1,5 @@
+# Not maintained any more use the fork https://github.com/ShamrockTrading/autocompletetextview
+
 ### Auto Complete Text View
 
 This is a module for accessing **Native Android AutoCompleteTextView.**
